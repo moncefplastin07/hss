@@ -1,10 +1,11 @@
-export const searchInDB = async (query: any = "", db = "th" ) => {
+export const searchInDB = async (query: any = "", db = "" ) => {
   
   const dbPath = {
     li: "./db/libraries.json",
     so: "./db/sociology.json",
     hs: "./db/history.json",
-    co: "./db/communication.json"
+    co: "./db/communication.json",
+    th: "./db/thakafa.json"
   }[db]
   if (dbPath == null) {
     return {
