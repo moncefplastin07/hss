@@ -13,8 +13,15 @@ export const searchInDB = async (query: any = "", db = "" ) => {
     return []
   }
   const db_ = JSON.parse(await Deno.readTextFile(dbPath));
+  const keywords = query.split(" ")
+    .filter((keyword:string)=>{
+        if (keyword.length > 2) {
+            return keyword
+        }
+    })
+  const keywordsRegEx = new RegExp(keywords.join('|'))
   const searchResult = db_.filter((book: any) =>
-    book.title?.search(query) > 0 || book.author?.search(query)  > 0 || book.ID?.startsWith(query) 
+  keywordsRegEx.test(book.title) || keywordsRegEx.test(book.author) || book.ID?.startsWith(query) 
     );
     return searchResult
 };
