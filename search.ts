@@ -1,4 +1,4 @@
-export const searchInDB = async (query: string = "", db = "" ) => {
+export const searchInDB = async (query: any = "", db = "" ) => {
   
   const dbPath = {
     li: "./db/libraries.json",
