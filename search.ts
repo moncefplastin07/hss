@@ -5,8 +5,8 @@ export const searchInDB = async (query: any = "", db = "" ) => {
     so: "./db/sociology.json",
     hs: "./db/history.json",
     co: "./db/communication.json",
-    pc: "./db/psychology,json",
-    fl: "./db/foreign_languages,json",
+    pc: "./db/psychology.json",
+    fl: "./db/foreign_languages.json",
     th: "./db/thakafa.json"
   }[db]
   if (dbPath == null) {
