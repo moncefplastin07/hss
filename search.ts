@@ -19,9 +19,9 @@ export const searchInDB = async (query: any = "", db = "" ) => {
             return keyword
         }
     })
-  const keywordsRegEx = new RegExp(keywords.join('|'))
+  const keywordsRegEx = new RegExp(keywords.join('|'), "g")
   const searchResult = db_.filter((book: any) =>
-  keywordsRegEx.test(book.title) || keywordsRegEx.test(book.author) || book.ID?.startsWith(query) 
+  new Set(book.title.match(keywordsRegEx)).size >= keywords.length || new Set(book.author.match(keywordsRegEx)).size >= keywords.length || book.ID?.startsWith(query) 
     );
     return searchResult
 };
